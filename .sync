@@ -1,0 +1,26 @@
+#!/bin/sh
+if [ "upload" == $1 ];then
+    expect -c "
+	set timeout -1
+	spawn sftp pi@raspberrypi.local
+	expect \"\[Pp\]assword:\"
+	send \"raspberry\r\"
+	expect \"sftp>\"
+	send \"put `dirname $0`/$2/$3 /home/pi/WorldOfDustbin/$2/$3\r\"
+	expect \"sftp>\"
+	send \"bye\r\"
+	expect \"#\"
+	"
+elif [ 'download' == $1 ];then
+    expect -c "
+	set timeout -1
+	spawn sftp pi@raspberrypi.local
+	expect \"[Pp]assword:\"
+	send \"raspberry\r\"
+	expect \"sftp>\"
+	send \"get /remote_path/$2/$3 `dirname $0`/$2/$3 \r\"
+	expect \"sftp>\"
+	send \"bye\r\"
+	expect \"#\"
+	"
+fi
