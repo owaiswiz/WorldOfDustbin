@@ -8,14 +8,14 @@ const transactionSchema = mongoose.Schema({
     },
     created: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     },
     type: {
         type: String
     },
     duration: {
         type: Date,
-        default: Date.getDate + 2* price
+        default: Date.getDate() + 2* price
     }
 });
 

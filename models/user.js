@@ -14,11 +14,15 @@ var UserSchema = mongoose.Schema({
 	},
 	email: {
 		type: String,
-		required: true
+		required: true,
+		trim: true
 	},
 	points: {
 		type: Number,
 		default: 0
+	},
+	streak: {
+		days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 	}
 });
 
