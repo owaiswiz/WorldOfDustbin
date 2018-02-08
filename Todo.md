@@ -23,3 +23,8 @@
 #Dustbin Routes
 
  - /dustbin/:id
+
+
+- Create post routes for dustbin and transaction
+- Populate dustbin schema with transactions
+- Connect dustbin and transactions with firebase
