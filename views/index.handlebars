@@ -1,4 +1,4 @@
- <h2 class="page-header">Dashboard</h2>
+<h2 class="page-header">Dashboard</h2>
 <p>Welcome {{username}} to your dashboard</p>  
 
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
@@ -14,17 +14,27 @@
         };
         firebase.initializeApp(config);
 
-        var database = firebase.database();
+        var db = firebase.database();
         
         var username = "{{username}}";
         var points = "{{points}}";
         var email = "{{email}}";
         var id = Date.now();
 
-            database.ref('users/' + id).set({
-                username: username,
-                points: points,
-                email: email
-            });
+        usersRef = db.ref('users/');
+        
+
+        usersRef.once('value', function(snapshot){
+            if(!snapshot.hasChild(username)){
+                usersRef.child(username).set({
+                    username: username,
+                    points: points,
+                    email: email
+                });                
+            }
+            else{
+                console.log("User already exists");
+            }
+        });
 
 </script>
