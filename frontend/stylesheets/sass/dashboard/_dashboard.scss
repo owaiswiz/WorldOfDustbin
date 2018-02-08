@@ -1,4 +1,14 @@
 main {
   width: calc(100% - 180px);
+
+  .status-bar {
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      color: white;
+    }
+  }
 }
 
