@@ -1,0 +1,40 @@
+<h2 class="page-header">Dashboard</h2>
+<p>Welcome <strong><em>{{username}}</em></strong> to your dashboard</p>  
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script>
+      // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCFvdyOMOYbfr5qNrcZDtMAQ6LrZwV3nXs",
+            authDomain: "dj-hack.firebaseapp.com",
+            databaseURL: "https://dj-hack.firebaseio.com",
+            projectId: "dj-hack",
+            storageBucket: "dj-hack.appspot.com",
+            messagingSenderId: "61128737185"
+        };
+        firebase.initializeApp(config);
+
+        var db = firebase.database();
+        
+        var username = "{{username}}";
+        var points = "{{points}}";
+        var email = "{{email}}";
+        var id = Date.now();
+
+        usersRef = db.ref('users/');
+        
+
+        usersRef.once('value', function(snapshot){
+            if(!snapshot.hasChild(username)){
+                usersRef.child(username).set({
+                    username: username,
+                    points: points,
+                    email: email
+                });                
+            }
+            else{
+                console.log("User already exists");
+            }
+        });
+
+</script>
