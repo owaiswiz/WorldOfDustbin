@@ -4,5 +4,7 @@ const router = express.Router();
 const Dustbin = require('../models/dustbin');
 
 router.get("/", function(req, res) {
-    res.render('dust-dash');
+    res.render('./dustbin/dust-dash');
 })
+
+module.exports = router;

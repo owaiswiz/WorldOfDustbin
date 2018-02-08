@@ -15,8 +15,8 @@ const transactionSchema = mongoose.Schema({
     },
     duration: {
         type: Date,
-        default: Date.getDate() + 2* price
+        //default:  
     }
 });
 
-const transaction = exports.module = mongoose.model('Transaction', transactionSchema);
+const transaction = module.exports = mongoose.model('Transaction', transactionSchema);

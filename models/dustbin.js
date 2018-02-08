@@ -9,7 +9,7 @@ const DustbinSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    transHistory: [transactionSchema],
+    //transHistory: [transactionSchema],
     children: {
         type: Number,
         default: 0

@@ -22,7 +22,36 @@ var UserSchema = mongoose.Schema({
 		default: 0
 	},
 	streak: {
-		days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+		days: {
+			Monday: {
+				type: Number,
+				default: 0
+			},
+			Tuesday: {
+				type: Number,
+				default: 0
+			},	
+			Wednesday: {
+				type: Number,
+				default: 0
+			},
+			Thursday: {
+				type: Number,
+				default: 0
+			},
+			Friday: {
+				type: Number,
+				default: 0
+			},
+			Saturday: {
+				type: Number,
+				default: 0
+			},
+			Sunday: {
+				type: Number,
+				default: 0
+			},																	
+		}
 	}
 });
 
